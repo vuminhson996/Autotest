@@ -1,3 +1,6 @@
+from selenium import webdriver
+from PIL import Image
+
 driver = webdriver.Chrome("C:\\Users\\vmson\\Desktop\\Selenium\\chromedriver")
 driver.get('https://www.python.org/');
 driver.maximize_window()
