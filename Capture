@@ -1,0 +1,21 @@
+driver = webdriver.Chrome("C:\\Users\\vmson\\Desktop\\Selenium\\chromedriver")
+driver.get('https://www.python.org/');
+driver.maximize_window()
+
+element = driver.find_element_by_xpath("//div[@class='container']");
+
+location = element.location;
+size = element.size;
+
+driver.save_screenshot("C:\\Users\\vmson\\Desktop\\Selenium\\Capture Image\\capture_screen.png");
+
+x = location['x'];
+y = location['y'];
+width = location['x']+size['width'];
+height = location['y']+size['height'];
+
+im = Image.open('C:\\Users\\vmson\\Desktop\\Selenium\\Capture Image\\capture_screen.png')
+im = im.crop((int(x), int(y), int(width), int(height)))
+im.save('C:\\Users\\vmson\\Desktop\\Selenium\\Capture Image\\image_region.png')
+
+driver.close()
